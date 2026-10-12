@@ -56,7 +56,7 @@ fun AppInfoDialog(
     CantaDialog(
         onDismissRequest = onDismiss,
         widthFraction = WIDE_DIALOG_WIDTH,
-        buttons = if (!appInfo.isUninstalled) ({
+        buttons = {
             Button(
                 onClick = { scope.launch { handler.openAppDetails(appInfo.packageName) } },
                 colors = ButtonDefaults.buttonColors(
@@ -72,7 +72,7 @@ fun AppInfoDialog(
                 Spacer(modifier = Modifier.size(8.dp))
                 Text(stringResource(Res.string.app_settings))
             }
-        }) else null,
+        },
     ) {
         Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
             Row {
